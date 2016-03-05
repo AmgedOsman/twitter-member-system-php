@@ -32,10 +32,10 @@ if ( ! defined( 'IN_SCRIPT' ) )
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 <?php $this->parseCSS();?>
-<meta property="fb:app_id" content="356392137883402"/>
-<meta property="fb:admins" content="609292535,100004465141728"/>
+<meta property="fb:app_id" content=""/>
+<meta property="fb:admins" content=""/>
 <meta property="og:locale" content="en_US"/>
-<meta property="og:site_name" content="PHP Twitter Membership System - Amged Osman"/>
+<meta property="og:site_name" content="Site Name"/>
 <meta property="og:title" content="<?php $this->getTitle();?>"/>
 <meta itemprop="name" content="<?php $this->getTitle();?>"/>
 <meta property="og:url" content="<?php echo $this->paramUrl();?>"/>

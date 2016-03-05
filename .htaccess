@@ -1,7 +1,4 @@
-#http://stackoverflow.com/questions/6241408/hide-extension-php-in-url-mod-rewrite
-#http://ralphvanderpauw.com/seo/how-to-301-redirect-a-trailing-slash-in-htaccess/
-#http://stackoverflow.com/questions/22670648/htaccess-for-index-phppage-1-and-other-pages
-#This result is a bit mix of everythig 
+
 ErrorDocument 404 /tms/404.php
 <IfModule mod_rewrite.c>
 Options -MultiViews

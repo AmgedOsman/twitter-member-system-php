@@ -27,7 +27,7 @@ if ( is_file( dirname( __FILE__ ) . '/constants.php' ) )
 //include "settings.php";
 //include(ROOT_DIR  . 'settings.php');
 require_once(ROOT_DIR . ADMIN_DIR . '/Database.php');
-require_once(ROOT_DIR . ADMIN_DIR . '/libsClass.php');
+require_once(ROOT_DIR . ADMIN_DIR . '/classTMS.php');
 
 require_once(ROOT_DIR . ADMIN_DIR . '/TwitterOAuth.php');
 require_once(ROOT_DIR . ADMIN_DIR . '/cTwitterStream.php');

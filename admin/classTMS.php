@@ -1,6 +1,6 @@
 <?php
 /**
- * libsClass.php
+ * classTMS.php
  *
  * Library
  *
@@ -12,7 +12,7 @@
  * @link       http://pear.php.net/package/PackageName
  * @since      File available since Release 1.2.0
  */
-class libsClass {
+class classTMS {
 protected $db;
 public $mysqli;
 public $settings;

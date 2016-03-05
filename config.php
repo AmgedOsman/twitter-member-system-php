@@ -7,13 +7,13 @@
 
 define('CONSUMER_KEY', '');
 define('CONSUMER_SECRET', '');
-define('OAUTH_CALLBACK', 'http://amged.me/tms/callback.php');
+define('OAUTH_CALLBACK', 'http://domain.com/includes/callback.php');
 
 //-------------------
 // Database
 //---------------------
 	define( 'dbhost', 'localhost' );// this will ususally be 'localhost', but can sometimes differ
-	define( 'dbname', 'twitter_login' );// the name of the database that you are going to use for this project
+	define( 'dbname', 'dabase_name' );// the name of the database that you are going to use for this project
 	define( 'dbuser', 'user' );// the username that you created, or were given, to access your database
 	define( 'dbpass', 'pass' );// the password that you created, or were given, to access your database
 

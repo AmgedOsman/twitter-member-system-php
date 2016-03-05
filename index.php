@@ -10,7 +10,7 @@ session_start();
 require_once('config.php');
 
 /*LoadLibrary*/
-$run = new libsClass();
+$run = new classTMS();
 //echo $run->settings['base_url'];
 
 

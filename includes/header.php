@@ -32,16 +32,39 @@ if ( ! defined( 'IN_SCRIPT' ) )
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 <?php $this->parseCSS();?>
+<meta property="fb:app_id" content="356392137883402"/>
+<meta property="fb:admins" content="609292535,100004465141728"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:site_name" content="PHP Twitter Membership System - Amged Osman"/>
+<meta property="og:title" content="<?php $this->getTitle();?>"/>
+<meta itemprop="name" content="<?php $this->getTitle();?>"/>
+<meta property="og:url" content="<?php echo $this->paramUrl();?>"/>
+
+<link rel="canonical" href="<?php echo $this->paramUrl();?>"/>
+<meta property="og:type" content="website"/>
+<meta property="article:publisher" content="https://www.facebook.com/AmgedO"/>
+<link rel="publisher" href="https://plus.google.com/+AmgedOsmanGP"/>
+
+<meta property="article:author" content="https://www.facebook.com/amged.osman"/>
+<meta name="author" content="Amged Osman"/>
+<link rel="author" href="https://plus.google.com/+AmgedOsmanGP"/>
+
+<meta property="og:description" content="<?php echo $this->settings['description'];?>"/>
+<meta name="description" content="<?php echo $this->settings['description'];?>"/>
+<meta itemprop="description" content="<?php echo $this->settings['description'];?>"/>
+
+<meta property="og:image" content="<?php echo $this->settings['public_url'];?>imgs/meta.png"/>
+<meta itemprop="image" content="<?php echo $this->settings['public_url'];?>imgs/meta.png"/>
+
+
 <meta name="twitter:site" content="@Amged"/>
 <meta name="twitter:creator" content="@Amged"/>
 <meta name="twitter:domain" content="amged.me"/>
 <meta name="twitter:title" content="<?php $this->getTitle();?>" />
 <meta name="twitter:description" content="<?php echo $this->settings['description'];?>" />
 <meta name="twitter:url" content="<?php echo $this->paramUrl();?>" />
-<meta name="twitter:card" content="summary_with" />
-<meta name="twitter:image" content="<?php echo $this->settings['public_url'];?>imgs/meta.png" />
-<meta name="twitter:image:width" content="640">
-<meta name="twitter:image:height" content="427">
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image:src" content="<?php echo $this->settings['public_url'];?>imgs/meta.png" />
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>

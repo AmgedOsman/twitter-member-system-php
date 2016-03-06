@@ -64,12 +64,15 @@ where `tms` is a subdirectory (you can remove it if your script runs on the root
 ##Explaing Some Functions
 To make things easier, i've created couple of functions that calls directly to certain actions
 ###$run
-Basically, my main class `libsClass` can be called using `$run->` anywhere on any page!
+Basically, my main class `classTMS` can be called using `$run->` anywhere on any page!
 for example to get current user Twitter Name you can do
 `$run->member->name` displays `Amged`
 
 ###$run->Twitter
 I've created a simple function to call directly for Abraham's class
+Call for the library
+`$run->getTwitter();`
+Then you can actually use it anywhere within your files
 `$run->Twitter->get();`
 or
 `$run->Twitter->post();`

@@ -46,6 +46,8 @@ class TwitterOAuth {
   function authenticateURL() { return 'https://api.twitter.com/oauth/authenticate'; }
   function authorizeURL()    { return 'https://api.twitter.com/oauth/authorize'; }
   function requestTokenURL() { return 'https://api.twitter.com/oauth/request_token'; }
+  function oauth2TokenURL() { return 'https://api.twitter.com/oauth2/token'; }
+  function oauth2TokenURL_invalidate() { return 'https://api.twitter.com/oauth2/invalidate_token'; }
 
   /**
    * Debug helpers

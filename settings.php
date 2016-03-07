@@ -1,6 +1,6 @@
 <?php
 /* Simply add link to root folder of the script */
-$INFO['base_url'] = 'http://amged.me/tms/';
+$INFO['base_url'] = 'http://localhost/twitter/tms/';
 /*Some customizations */
 $INFO['title']    = 'Twitter Membership Based System';
 $INFO['desc']     = "Simple Twitter Website based on abrahams TwitterAOuth and Bootstrap.";
@@ -9,7 +9,7 @@ $INFO['default_lang']    = 'en';
 /*bootswatch bootstrap themes can be found here*/
 $INFO['theme']    = 'cosmo'; //https://www.bootstrapcdn.com/bootswatch/
 /* Force MEmber Login */
-$INFO['force_login'] = 0;
+$INFO['force_login'] = 1;
 /*SocialProfiles*/
 $INFO['social'] = array(
 							'github'   => 'https://github.com/amgedosman',

@@ -49,7 +49,13 @@ if ( !defined( 'ADMIN_PATH' ) )
 {
 	define( 'ADMIN_PATH', ROOT_PATH . ADMIN_DIR . "/" );
 }
-
+/**
+* "CLASSES" PATH
+*/
+if ( !defined( 'CLASSES' ) )
+{
+	define( 'CLASSES', ADMIN_PATH . "classes/" );
+}
 
 //--------------------------------------------------------------------------
 // ADVANCED CONFIGURATION: ERROR REPORTING

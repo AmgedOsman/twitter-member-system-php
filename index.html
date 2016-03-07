@@ -1,0 +1,203 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Twitter-member-system-php by AmgedOsman</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Twitter-member-system-php</h1>
+        <p>PHP Twitter Membership Based System</p>
+
+        <p class="view"><a href="https://github.com/AmgedOsman/twitter-member-system-php">View the Project on GitHub <small>AmgedOsman/twitter-member-system-php</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/AmgedOsman/twitter-member-system-php/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/AmgedOsman/twitter-member-system-php/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/AmgedOsman/twitter-member-system-php">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a id="twitter-member-system-php" class="anchor" href="#twitter-member-system-php" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Twitter Member System PHP</h1>
+
+<p>PHP Membership System using Twitter Login only
+The system is based and using <a href="https://github.com/Abraham" class="user-mention">@Abraham</a>'s <a href="https://github.com/abraham/twitteroauth">TwitterAOuth</a> 
+The System can be up and running in no time, very easy to install and to use.</p>
+
+<p><a href="http://amged.me/tms/">demo here</a></p>
+
+<p>I've created it around a single registery class called <code>$run-&gt;functionExample();</code> (more on this later)</p>
+
+<h2>
+<a id="creating-twitter-application" class="anchor" href="#creating-twitter-application" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Creating Twitter Application</h2>
+
+<p>For this system to work you need to create <a href="https://apps.twitter.com">Twitter Application</a>
+Make sure to setup the callback URL to the <code>callback.php</code> file in <code>includes</code> folder
+Once the app is created you will be provided with </p>
+
+<ul>
+<li>CONSUMER_KEY</li>
+<li>CONSUMER_SECRET</li>
+</ul>
+
+<h2>
+<a id="getting-started" class="anchor" href="#getting-started" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Getting Started</h2>
+
+<p>Open the <code>config.php</code>and add the provided <code>CONSUMER_KEY</code> &amp; <code>CONSUMER_SECRET</code> as well as your callback URL (The script won't work without it).</p>
+
+<h2>
+<a id="setup-database" class="anchor" href="#setup-database" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Setup Database</h2>
+
+<p>Now create a new table in your database and import the below table inside it
+This table is for users</p>
+
+<pre><code>CREATE TABLE IF NOT EXISTS `users` (
+  `id` int(25) NOT NULL AUTO_INCREMENT,
+  `twitter_id` int(10) unsigned NOT NULL DEFAULT '0',
+  `name` varchar(65) NOT NULL,
+  `screen_name` varchar(65) NOT NULL,
+  `access_data` tinytext NOT NULL,
+  `password` varchar(32) NOT NULL,
+  `profile_image_url` varchar(250) NOT NULL,
+  `created` int(10) NOT NULL,
+  `updated` int(10) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `timezone` varchar(255) NOT NULL DEFAULT 'Europe/London',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=21 ;
+</code></pre>
+
+<p>Again, in your <code>config.php</code> file fill in the database connection info</p>
+
+<pre><code>//-------------------
+// Database
+//---------------------
+    define( 'dbhost', 'localhost' );// this will ususally be 'localhost', but can sometimes differ
+    define( 'dbname', 'database_name' );// the name of the database that you are going to use for this project
+    define( 'dbuser', 'user' );// the username that you created, or were given, to access your database
+    define( 'dbpass', 'password' );// the password that you created, or were given, to access your database
+</code></pre>
+
+<h2>
+<a id="customization-and-setup" class="anchor" href="#customization-and-setup" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Customization and Setup</h2>
+
+<p>Now open <code>settings.php</code> and fill in the right configuration for your script</p>
+
+<p>Most important one is the (the rest are all optional)</p>
+
+<p><code>$INFO['base_url'] = 'URL_TO_SCRIPT';</code></p>
+
+<h2>
+<a id="seo-frindly-with-htaccess" class="anchor" href="#seo-frindly-with-htaccess" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>SEO Frindly with HTACCESS</h2>
+
+<p>Once that is done open the file <code>.htaccess</code> and again, put the correct url for the script to the error document (optional)
+<code>ErrorDocument 404 /tms/404.php</code>
+where <code>tms</code> is a subdirectory (you can remove it if your script runs on the root folder of the website</p>
+
+<h2>
+<a id="explaing-some-functions" class="anchor" href="#explaing-some-functions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Explaing Some Functions</h2>
+
+<p>To make things easier, i've created couple of functions that calls directly to certain actions</p>
+
+<h3>
+<a id="run" class="anchor" href="#run" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>$run</h3>
+
+<p>Basically, my main class <code>classTMS</code> can be called using <code>$run-&gt;</code> anywhere on any page!
+for example to get current user Twitter Name you can do
+<code>$run-&gt;member-&gt;name</code> displays <code>Amged</code></p>
+
+<h3>
+<a id="run-twitter" class="anchor" href="#run-twitter" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>$run-&gt;Twitter</h3>
+
+<p>I've created a simple function to call directly for Abraham's class
+Call for the library
+<code>$run-&gt;getTwitter();</code>
+Then you can actually use it anywhere within your files
+<code>$run-&gt;Twitter-&gt;get();</code>
+or
+<code>$run-&gt;Twitter-&gt;post();</code></p>
+
+<p>Basically, any function that exists on TwitterAOuth can be accessed directly with 
+<code>$run-&gt;Twitter-&gt;functionName();</code></p>
+
+<h2>
+<a id="creating-new-pages" class="anchor" href="#creating-new-pages" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Creating New Pages</h2>
+
+<p>You might want to create new pages for you website
+with only 3 lines of codes you can have a new page ready!
+Simply create new file in <code>includes</code> folder, for example call it <code>myfile.php</code></p>
+
+<p>Then add the below content inside it</p>
+
+<pre><code>&lt;?php
+if ( ! defined( 'IN_SCRIPT' ) )
+{
+    print "&lt;h1&gt;Incorrect access&lt;/h1&gt;You cannot access this file directly.";
+    exit();
+}
+
+//
+// Set Page Title
+//
+    $run-&gt;setTitle('My Title');
+
+//
+// Set Page desc
+//
+    $run-&gt;setDescription('Page description!');
+
+//
+// Load page
+//
+    $run-&gt;buildContent( 'Output Content' );
+
+</code></pre>
+
+<p>That's it! 
+I've also created another way of outputting content for more customization</p>
+
+<p>so instead of <code>$run-&gt;buildContent('string here');</code>
+you can use</p>
+
+<pre><code>//Print Header
+$run-&gt;headerContent();
+//Send output
+$run-&gt;addContent( $run-&gt;words['setup_text'] );
+//Send more content
+$run-&gt;addContent( 'string' );
+//print footer
+$run-&gt;footerContent();
+</code></pre>
+
+<p>Enjoy the script and let me know if you run into any bugs</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/AmgedOsman">AmgedOsman</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-74731478-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
